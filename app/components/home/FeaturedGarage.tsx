@@ -18,15 +18,15 @@ export default function FeaturedGarage({ cars }: Props) {
 
       <SiteContainer>
 
-        <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.5em] text-red-500">
+        <p className="mb-4 text-center text-xs font-bold uppercase tracking-[0.35em] text-red-500 sm:text-sm sm:tracking-[0.5em]">
           FEATURED GARAGE
         </p>
 
-        <h2 className="text-center text-5xl font-black uppercase md:text-7xl">
+        <h2 className="text-center text-4xl font-black uppercase leading-none sm:text-5xl md:text-6xl">
           Community Builds
         </h2>
 
-        <p className="mx-auto mt-8 mb-20 max-w-3xl text-center text-lg leading-8 text-gray-400">
+        <p className="mx-auto mb-12 mt-6 max-w-3xl text-center text-base leading-8 text-gray-400 md:mb-16 md:text-lg">
           Discover some of the newest builds from the Project Manji community.
           Every car has its own story, specifications and driver.
         </p>
@@ -60,7 +60,7 @@ export default function FeaturedGarage({ cars }: Props) {
 
         </SectionGrid>
 
-        <div className="mt-20 flex justify-center">
+        <div className="mt-14 flex justify-center">
 
           <Button href="/garage">
             🚗 View All Builds

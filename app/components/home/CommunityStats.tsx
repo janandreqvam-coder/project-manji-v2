@@ -45,11 +45,11 @@ export default function CommunityStats({
 
       <SiteContainer>
 
-        <p className="text-center text-sm font-bold uppercase tracking-[0.45em] text-red-500">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.35em] text-red-500 sm:text-sm sm:tracking-[0.45em]">
           PROJECT MANJI
         </p>
 
-        <h2 className="mt-4 text-center text-5xl font-black uppercase md:text-6xl">
+        <h2 className="mt-4 text-center text-4xl font-black uppercase leading-none sm:text-5xl md:text-6xl">
           Community Stats
         </h2>
 
@@ -57,7 +57,7 @@ export default function CommunityStats({
           Live statistics from the Project Manji community.
         </p>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4">
 
           {stats.map((stat) => (
 

@@ -55,17 +55,17 @@ export default function EventCountdown({
   ];
 
   return (
-    <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+    <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
       {items.map((item) => (
         <div
           key={item.label}
-          className="rounded-2xl border border-red-600/20 bg-zinc-900 p-6 text-center"
+          className="rounded-2xl border border-red-600/20 bg-zinc-900 p-4 text-center md:p-6"
         >
-          <p className="text-4xl font-black text-red-500">
+          <p className="text-3xl font-black text-red-500 md:text-4xl">
             {String(item.value).padStart(2, "0")}
           </p>
 
-          <p className="mt-2 uppercase tracking-[0.25em] text-gray-400">
+          <p className="mt-2 text-xs uppercase tracking-[0.2em] text-gray-400 md:text-base md:tracking-[0.25em]">
             {item.label}
           </p>
         </div>

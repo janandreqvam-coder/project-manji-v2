@@ -1,5 +1,4 @@
 import SiteContainer from "./SiteContainer";
-import { theme } from "./theme";
 
 type Props = {
   children: React.ReactNode;
@@ -22,8 +21,10 @@ export default function AppLayout({
     <div
       className={`
         relative z-10 min-h-[calc(100vh-5rem)]
-        ${theme.layout.top}
-        ${theme.layout.bottom}
+        pt-20
+        pb-24
+        md:pt-24
+        md:pb-32
         ${className}
       `}
     >

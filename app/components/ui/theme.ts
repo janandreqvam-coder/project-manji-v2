@@ -1,11 +1,11 @@
 export const theme = {
   layout: {
     width: "max-w-7xl",
-    top: "pt-12",
-    bottom: "pb-32",
-    sides: "px-6 sm:px-8 lg:px-10",
+    top: "pt-16 md:pt-20",
+    bottom: "pb-24 md:pb-32",
+    sides: "px-4 sm:px-6 lg:px-8 xl:px-10",
 
-    heroGap: "mb-24",
+    heroGap: "mb-12 md:mb-20",
     sectionGap: "mt-20",
     cardGap: "gap-8",
   },
@@ -13,7 +13,7 @@ export const theme = {
   navbar: {
     width: "max-w-7xl",
     height: "h-20",
-    padding: "px-6 sm:px-8 lg:px-10",
+    padding: "px-4 sm:px-6 lg:px-8 xl:px-10",
   },
 
   sidebar: {

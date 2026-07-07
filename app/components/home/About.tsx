@@ -35,24 +35,24 @@ export default function About() {
 
         <SiteContainer className="relative text-center">
 
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.5em] text-red-500">
-            WHO WE ARE
-          </p>
+        <p className="mb-4 text-xs font-bold uppercase tracking-[0.35em] text-red-500 sm:text-sm sm:tracking-[0.5em]">
+          WHO WE ARE
+        </p>
 
-          <h2 className="text-5xl font-black uppercase md:text-7xl">
+          <h2 className="text-4xl font-black uppercase leading-none sm:text-5xl md:text-6xl">
             Built by Racers.
             <br />
             For Racers.
           </h2>
 
-          <p className="mx-auto mt-10 max-w-4xl text-xl leading-9 text-gray-300">
+          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-gray-300 md:text-xl md:leading-9">
             Project Manji is more than an Assetto Corsa community.
             It&apos;s a place where drivers come together to drift, race,
             cruise, battle through mountain passes and experience
             Japanese car culture together.
           </p>
 
-          <div className="mt-20 grid gap-8 md:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">
 
             {values.map((value) => (
 

@@ -1,5 +1,3 @@
-import { theme } from "./theme";
-
 type Props = {
   children: React.ReactNode;
   className?: string;
@@ -14,8 +12,10 @@ export default function SiteContainer({
       className={`
         mx-auto
         w-full
-        ${theme.layout.width}
-        ${theme.layout.sides}
+        max-w-7xl
+        px-6
+        sm:px-8
+        lg:px-12
         ${className}
       `}
     >

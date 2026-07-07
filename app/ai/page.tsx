@@ -89,7 +89,7 @@ export default function AIPage() {
         description="Your intelligent garage assistant for everything Project Manji."
       />
 
-          <div className="mt-20 rounded-3xl border border-red-600/20 bg-zinc-900/80 backdrop-blur-sm">
+      <div className="mx-auto max-w-5xl rounded-3xl border border-red-600/20 bg-zinc-900/80 backdrop-blur-sm">
 
             {/* Header */}
 
@@ -117,17 +117,17 @@ export default function AIPage() {
 
             </div>
 
-            <div className="space-y-6 p-8">
+        <div className="space-y-6 p-5 sm:p-8">
 
               {/* Suggestions */}
 
-              <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-3 md:grid-cols-2 md:gap-4">
 
                 {suggestions.map((item) => (
                   <button
                     key={item}
                     onClick={() => askAI(item)}
-                    className="rounded-xl border border-red-600/20 bg-black/40 p-5 text-left transition hover:border-red-500 hover:bg-red-600/10"
+                    className="rounded-xl border border-red-600/20 bg-black/40 p-4 text-left transition hover:border-red-500 hover:bg-red-600/10 md:p-5"
                   >
                     {item}
                   </button>
@@ -184,7 +184,7 @@ export default function AIPage() {
 
               {/* Input */}
 
-              <div className="mt-10 flex gap-4">
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
 
                 <input
                   value={message}
@@ -195,13 +195,13 @@ export default function AIPage() {
                     }
                   }}
                   placeholder="Ask Manji AI anything..."
-                  className="flex-1 rounded-xl border border-red-600/20 bg-black/40 px-6 py-4 outline-none focus:border-red-500"
+                  className="min-w-0 flex-1 rounded-xl border border-red-600/20 bg-black/40 px-5 py-4 outline-none focus:border-red-500"
                 />
 
                 <button
                   onClick={() => askAI()}
                   disabled={loading}
-                  className="rounded-xl bg-red-600 px-8 font-bold transition hover:bg-red-500 disabled:opacity-50"
+                  className="shrink-0 rounded-xl bg-red-600 px-8 py-4 font-bold transition hover:bg-red-500 disabled:opacity-50"
                 >
                   {loading ? "Thinking..." : "Send"}
                 </button>
@@ -210,7 +210,7 @@ export default function AIPage() {
 
             </div>
 
-          </div>
+      </div>
 
     </AppLayout>
   );

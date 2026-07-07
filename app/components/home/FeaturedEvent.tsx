@@ -27,7 +27,7 @@ export default function FeaturedEvent({ event }: Props) {
 
         <SiteContainer>
 
-          <h2 className="text-center text-5xl font-black uppercase">
+          <h2 className="text-center text-4xl font-black uppercase sm:text-5xl">
             No Upcoming Events
           </h2>
 
@@ -49,19 +49,19 @@ export default function FeaturedEvent({ event }: Props) {
 
       <SiteContainer>
 
-        <p className="text-center text-sm font-bold uppercase tracking-[0.45em] text-red-500">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.35em] text-red-500 sm:text-sm sm:tracking-[0.45em]">
           NEXT EVENT
         </p>
 
-        <h2 className="mt-4 text-center text-5xl font-black uppercase md:text-6xl">
+        <h2 className="mt-4 text-center text-4xl font-black uppercase leading-none sm:text-5xl md:text-6xl">
           {event.name}
         </h2>
 
-        <p className="mx-auto mt-8 max-w-3xl text-center text-lg leading-8 text-gray-400">
+        <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-8 text-gray-400 md:text-lg">
           {event.description}
         </p>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-4">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 
           <Card className="p-6 text-center">
             <div className="text-4xl">📅</div>
@@ -113,9 +113,9 @@ export default function FeaturedEvent({ event }: Props) {
 
         </div>
 
-        <div className="mt-16">
+        <div className="mt-12">
 
-          <p className="mb-6 text-center text-sm font-bold uppercase tracking-[0.4em] text-red-500">
+          <p className="mb-4 text-center text-xs font-bold uppercase tracking-[0.35em] text-red-500 sm:text-sm sm:tracking-[0.4em]">
             Event Starts In
           </p>
 
@@ -126,7 +126,7 @@ export default function FeaturedEvent({ event }: Props) {
 
         </div>
 
-        <div className="mt-16 flex justify-center">
+        <div className="mt-12 flex justify-center">
 
           <Button href={event.discord}>
             🚗 Join Event

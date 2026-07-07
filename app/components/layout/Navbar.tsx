@@ -6,7 +6,6 @@ import Image from "next/image";
 
 import SearchBar from "./SearchBar";
 import SiteContainer from "../ui/SiteContainer";
-import { theme } from "../ui/theme";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -24,7 +23,7 @@ export default function Navbar() {
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-red-600/20 bg-black/85 backdrop-blur-xl">
 
       <SiteContainer
-        className={`flex items-center justify-between ${theme.navbar.height}`}
+        className="flex h-20 items-center justify-between"
       >
 
         {/* Logo */}
@@ -40,7 +39,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-5 xl:gap-8 lg:flex">
+        <div className="hidden items-center gap-5 xl:flex xl:gap-8">
 
           {links.map((link) => (
             <Link
@@ -68,7 +67,7 @@ export default function Navbar() {
         {/* Mobile Button */}
         <button
           onClick={() => setOpen(!open)}
-          className="text-3xl transition hover:text-red-500 lg:hidden"
+          className="text-3xl transition hover:text-red-500 xl:hidden"
           aria-label="Toggle Menu"
         >
           {open ? "✕" : "☰"}
@@ -78,7 +77,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`overflow-hidden bg-black transition-all duration-300 lg:hidden ${
+        className={`overflow-hidden bg-black transition-all duration-300 xl:hidden ${
           open
             ? "max-h-screen border-t border-red-600/20"
             : "max-h-0"

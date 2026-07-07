@@ -56,7 +56,7 @@ export default function SearchBar() {
   }, [query]);
 
   return (
-    <div className="relative w-72">
+    <div className="relative w-full xl:w-72">
 
       <input
         value={query}
@@ -66,7 +66,7 @@ export default function SearchBar() {
       />
 
       {query && results.length > 0 && (
-        <div className="absolute mt-2 w-full overflow-hidden rounded-xl border border-red-600/20 bg-zinc-900 shadow-xl">
+        <div className="absolute z-50 mt-2 w-full overflow-hidden rounded-xl border border-red-600/20 bg-zinc-900 shadow-xl">
 
           {results.map((result) => (
             <Link
