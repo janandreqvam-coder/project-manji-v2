@@ -73,7 +73,7 @@ export default async function AdminPage() {
 
   return (
     <div>
-      <header className="mx-auto max-w-4xl pb-2 text-center">
+      <header className="mx-auto max-w-4xl pb-8 text-center">
         <p className="text-sm font-bold uppercase tracking-[0.25em] text-red-500">
           Project Manji
         </p>
@@ -89,7 +89,7 @@ export default async function AdminPage() {
         <div className="mx-auto mt-6 h-px w-24 bg-red-500" />
       </header>
 
-      <section className="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="mt-4 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
         {metrics.map((metric) => (
           <Link
             key={metric.label}
