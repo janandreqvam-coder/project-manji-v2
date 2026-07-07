@@ -25,8 +25,8 @@ export default function AdminLayout({
 
   return (
     <div className="relative z-10 min-h-[calc(100vh-6rem)] border-t border-red-600/20 bg-black text-white">
-      <div className="site-container grid gap-8 py-10 lg:grid-cols-[220px_minmax(0,1fr)] lg:py-12">
-        <aside className="sticky top-28 hidden h-[calc(100vh-8rem)] min-h-[680px] flex-col rounded-lg border border-red-600/20 bg-black/80 p-6 shadow-2xl shadow-red-950/20 lg:flex">
+      <div className="site-container grid gap-8 py-14 lg:grid-cols-[220px_minmax(0,1fr)] lg:py-16">
+        <aside className="sticky top-32 hidden h-[calc(100vh-9rem)] min-h-[640px] flex-col rounded-lg border border-red-600/20 bg-black/80 p-6 shadow-2xl shadow-red-950/20 lg:flex">
           <div>
             <Image
               src="/logos/logo.png"
