@@ -28,7 +28,7 @@ export default function About() {
     <FadeIn>
       <section
         id="about"
-        className="relative overflow-hidden bg-gradient-to-b from-black via-zinc-950 to-black py-32 text-white"
+        className="relative overflow-hidden border-y border-white/10 bg-black py-10 text-white"
       >
         {/* Ambient Red Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08),transparent_70%)]" />
@@ -39,37 +39,37 @@ export default function About() {
           WHO WE ARE
         </p>
 
-          <h2 className="text-4xl font-black uppercase leading-none sm:text-5xl md:text-6xl">
+          <h2 className="text-3xl font-black uppercase leading-none sm:text-4xl md:text-5xl">
             Built by Racers.
             <br />
             For Racers.
           </h2>
 
-          <p className="mx-auto mt-8 max-w-4xl text-base leading-8 text-gray-300 md:text-xl md:leading-9">
+          <p className="mx-auto mt-5 max-w-4xl text-base leading-7 text-gray-300 md:text-lg">
             Project Manji is more than an Assetto Corsa community.
             It&apos;s a place where drivers come together to drift, race,
             cruise, battle through mountain passes and experience
             Japanese car culture together.
           </p>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3 md:gap-8">
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
 
             {values.map((value) => (
 
               <Card
                 key={value.title}
-                className="group h-full p-8 text-center"
+                className="group h-full rounded-lg border-white/10 bg-zinc-950/70 p-6 text-center"
               >
 
-                <div className="mb-6 text-6xl transition duration-300 group-hover:scale-110">
+                <div className="mb-4 text-4xl transition duration-300 group-hover:scale-110">
                   {value.icon}
                 </div>
 
-                <h3 className="mb-4 text-3xl font-bold text-red-500">
+                <h3 className="mb-3 text-2xl font-bold text-red-500">
                   {value.title}
                 </h3>
 
-                <p className="leading-8 text-gray-400">
+                <p className="text-sm leading-7 text-gray-400">
                   {value.description}
                 </p>
 

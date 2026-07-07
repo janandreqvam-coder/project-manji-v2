@@ -6,7 +6,6 @@ import { events as fallbackEvents } from "./data/events";
 
 import Hero from "./components/home/Hero";
 import About from "./components/home/About";
-import CommunityStats from "./components/home/CommunityStats";
 import FeaturedGarage from "./components/home/FeaturedGarage";
 import DriverSpotlight from "./components/home/DriverSpotlight";
 import FeaturedEvent from "./components/home/FeaturedEvent";
@@ -60,16 +59,14 @@ export default async function Home() {
   return (
     <AppLayout contained={false} className="pt-0 pb-0">
 
-      <Hero />
-
-      <About />
-
-      <CommunityStats
+      <Hero
         carCount={carCountResult.count ?? featuredCars.length}
         driverCount={driverCountResult.count ?? (spotlightDriver ? 1 : 0)}
         eventCount={eventCountResult.count ?? (featuredEvent ? 1 : 0)}
         galleryCount={galleryCountResult.count ?? 0}
       />
+
+      <About />
 
       <FeaturedGarage cars={featuredCars} />
 

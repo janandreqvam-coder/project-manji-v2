@@ -1,7 +1,6 @@
 import EventCountdown from "./EventCountdown";
 
 import Button from "../ui/Button";
-import Card from "../ui/Card";
 import SiteContainer from "../ui/SiteContainer";
 
 type Event = {
@@ -21,121 +20,84 @@ type Props = {
 export default function FeaturedEvent({ event }: Props) {
   if (!event) {
     return (
-      <section className="relative overflow-hidden py-24">
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08),transparent_70%)]" />
-
+      <section className="relative overflow-hidden bg-black py-12">
         <SiteContainer>
+          <div className="rounded-lg border border-white/10 bg-zinc-950/70 p-8 text-center">
+            <h2 className="text-3xl font-black uppercase">
+              No Upcoming Events
+            </h2>
 
-          <h2 className="text-center text-4xl font-black uppercase sm:text-5xl">
-            No Upcoming Events
-          </h2>
-
-          <p className="mt-6 text-center text-gray-400">
-            Check back soon for the next Project Manji event.
-          </p>
-
+            <p className="mt-4 text-gray-400">
+              Check back soon for the next Project Manji event.
+            </p>
+          </div>
         </SiteContainer>
-
       </section>
     );
   }
 
   return (
-    <section className="relative overflow-hidden py-24">
-
-      {/* Ambient Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08),transparent_70%)]" />
-
+    <section className="relative overflow-hidden bg-black py-12 text-white">
       <SiteContainer>
+        <div className="grid overflow-hidden rounded-lg border border-white/10 bg-zinc-950/70 shadow-2xl shadow-black/40 lg:grid-cols-[1fr_0.9fr]">
+          <div className="p-6 md:p-8">
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-xs font-bold uppercase tracking-[0.35em] text-red-500">
+                Next Event
+              </p>
 
-        <p className="text-center text-xs font-bold uppercase tracking-[0.35em] text-red-500 sm:text-sm sm:tracking-[0.45em]">
-          NEXT EVENT
-        </p>
+              <span className="rounded border border-red-500/40 px-2 py-1 text-[10px] font-bold uppercase text-red-400">
+                {event.status}
+              </span>
+            </div>
 
-        <h2 className="mt-4 text-center text-4xl font-black uppercase leading-none sm:text-5xl md:text-6xl">
-          {event.name}
-        </h2>
+            <h2 className="mt-3 text-3xl font-black uppercase leading-none md:text-4xl">
+              {event.name}
+            </h2>
 
-        <p className="mx-auto mt-6 max-w-3xl text-center text-base leading-8 text-gray-400 md:text-lg">
-          {event.description}
-        </p>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-
-          <Card className="p-6 text-center">
-            <div className="text-4xl">📅</div>
-
-            <p className="mt-4 text-lg font-bold">
-              {event.date}
+            <p className="mt-4 max-w-2xl text-sm leading-7 text-gray-400 md:text-base">
+              {event.description}
             </p>
 
-            <p className="text-gray-400">
-              Date
-            </p>
-          </Card>
+            <div className="mt-7 grid gap-4 text-sm text-gray-400 sm:grid-cols-4">
+              <EventDetail label="Date" value={event.date} />
+              <EventDetail label="Time" value={event.time} />
+              <EventDetail label="Location" value={event.location} />
+              <EventDetail label="Status" value={event.status} />
+            </div>
 
-          <Card className="p-6 text-center">
-            <div className="text-4xl">🕗</div>
+            <div className="mt-8">
+              <p className="mb-3 text-xs font-bold uppercase tracking-[0.3em] text-red-500">
+                Event Starts In
+              </p>
 
-            <p className="mt-4 text-lg font-bold">
-              {event.time}
-            </p>
+              <EventCountdown date={event.date} time={event.time} />
+            </div>
+          </div>
 
-            <p className="text-gray-400">
-              Time
-            </p>
-          </Card>
+          <div className="relative flex min-h-72 items-end justify-start overflow-hidden border-t border-white/10 bg-[url('/logos/hero.png')] bg-cover bg-center p-6 lg:border-l lg:border-t-0 md:p-8">
+            <div className="absolute inset-0 bg-black/55" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
 
-          <Card className="p-6 text-center">
-            <div className="text-4xl">📍</div>
-
-            <p className="mt-4 text-lg font-bold">
-              {event.location}
-            </p>
-
-            <p className="text-gray-400">
-              Location
-            </p>
-          </Card>
-
-          <Card className="p-6 text-center">
-            <div className="text-4xl">🏁</div>
-
-            <p className="mt-4 text-lg font-bold">
-              {event.status}
-            </p>
-
-            <p className="text-gray-400">
-              Status
-            </p>
-          </Card>
-
+            <div className="relative">
+              <Button href={event.discord} className="rounded-md px-7 py-3 text-sm">
+                Join Event on Discord
+              </Button>
+            </div>
+          </div>
         </div>
-
-        <div className="mt-12">
-
-          <p className="mb-4 text-center text-xs font-bold uppercase tracking-[0.35em] text-red-500 sm:text-sm sm:tracking-[0.4em]">
-            Event Starts In
-          </p>
-
-          <EventCountdown
-            date={event.date}
-            time={event.time}
-          />
-
-        </div>
-
-        <div className="mt-12 flex justify-center">
-
-          <Button href={event.discord}>
-            🚗 Join Event
-          </Button>
-
-        </div>
-
       </SiteContainer>
-
     </section>
+  );
+}
+
+function EventDetail({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="border-l border-red-600/30 pl-4">
+      <p className="font-bold text-white">{value}</p>
+      <p className="mt-1 text-xs uppercase tracking-wider text-gray-500">
+        {label}
+      </p>
+    </div>
   );
 }

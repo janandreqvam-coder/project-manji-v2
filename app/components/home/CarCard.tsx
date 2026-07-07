@@ -1,8 +1,9 @@
 "use client";
 
-import Card from "@/app/components/ui/Card";
 import Image from "next/image";
 import Link from "next/link";
+
+import Card from "@/app/components/ui/Card";
 import { useFavorites } from "@/app/hooks/useFavorites";
 
 type Car = {
@@ -20,77 +21,54 @@ type Car = {
 
 export default function CarCard({ car }: { car: Car }) {
   const { favorites, toggleFavorite } = useFavorites();
-
   const isFavorite = favorites.includes(car.id);
 
   return (
-    <Card> 
-      {/* Image */}
-      <div className="relative h-64 overflow-hidden">
-
+    <Card className="rounded-lg border-white/10 bg-zinc-950/85">
+      <div className="relative h-48 overflow-hidden">
         <Image
           src={car.image}
           alt={car.name}
           fill
-          sizes="(max-width:768px) 100vw, (max-width:1280px) 50vw, 33vw"
-          className="object-cover transition duration-700 group-hover:scale-110"
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover transition duration-700 group-hover:scale-105"
         />
 
-        {/* Dark Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
-        {/* Favorite Button */}
         <button
           onClick={() => toggleFavorite(car.id)}
-          className="absolute right-4 top-4 rounded-full bg-black/60 p-3 backdrop-blur transition hover:scale-110"
+          className="absolute right-3 top-3 rounded-full bg-black/60 px-2 py-1 text-lg text-white backdrop-blur transition hover:scale-110 hover:text-red-400"
+          aria-label="Toggle favorite"
         >
-          <span className="text-2xl">
-            {isFavorite ? "❤️" : "🤍"}
-          </span>
+          {isFavorite ? "♥" : "♡"}
         </button>
-
       </div>
 
-      {/* Content */}
-      <div className="p-6">
-
-        <p className="mb-2 text-xs uppercase tracking-[0.35em] text-red-500">
-          {car.manufacturer} • {car.year}
+      <div className="p-4">
+        <p className="mb-2 text-[10px] uppercase tracking-[0.28em] text-red-500">
+          {car.manufacturer} / {car.year}
         </p>
 
-        <h3 className="text-3xl font-black transition duration-300 group-hover:text-red-500">
+        <h3 className="text-lg font-black uppercase leading-tight transition duration-300 group-hover:text-red-500">
           {car.name}
         </h3>
 
-        <div className="mt-6 space-y-3 text-gray-400">
+        <p className="mt-2 text-sm text-gray-400">
+          {car.power} / {car.class}
+        </p>
 
-          <p>
-            👤 <strong className="text-white">Driver:</strong> {car.driver}
-          </p>
-
-          <p>
-            ⚡ <strong className="text-white">Power:</strong> {car.power}
-          </p>
-
-          <p>
-            🏁 <strong className="text-white">Class:</strong> {car.class}
-          </p>
-
-          <p>
-            🌍 <strong className="text-white">Country:</strong> {car.country}
-          </p>
-
-        </div>
+        <p className="mt-3 text-xs text-gray-500">
+          Driver: {car.driver}
+        </p>
 
         <Link
           href={`/garage/${car.slug}`}
-          className="mt-8 block rounded-xl bg-red-600 py-3 text-center font-bold shadow-[0_0_20px_rgba(220,38,38,0.25)] transition duration-300 hover:bg-red-500 hover:shadow-[0_0_35px_rgba(220,38,38,0.45)]"
+          className="mt-4 block rounded-md border border-red-600/50 px-4 py-2 text-center text-xs font-bold uppercase tracking-wide text-red-400 transition hover:border-red-500 hover:bg-red-600 hover:text-white"
         >
-          View Build →
+          View Build
         </Link>
-
       </div>
-
     </Card>
   );
 }
