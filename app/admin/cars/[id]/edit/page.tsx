@@ -6,7 +6,7 @@ import FormInput from "@/app/components/ui/FormInput";
 import FormTextarea from "@/app/components/ui/FormTextarea";
 import Button from "@/app/components/ui/Button";
 
-import { updateCar } from "../../../actions";
+import { updateCar } from "@/app/admin/cars/actions";
 
 export default async function EditCarPage({
   params,
