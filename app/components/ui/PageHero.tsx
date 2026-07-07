@@ -20,7 +20,7 @@ export default function PageHero({
         {title}
       </h1>
 
-      <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-gray-400 md:text-lg">
+      <p className="section-copy mt-6 text-base leading-8 text-gray-400 md:text-lg">
         {description}
       </p>
 

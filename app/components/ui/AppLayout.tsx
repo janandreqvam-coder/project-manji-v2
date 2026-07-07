@@ -19,14 +19,7 @@ export default function AppLayout({
 
   return (
     <div
-      className={`
-        relative z-10 min-h-[calc(100vh-5rem)]
-        pt-20
-        pb-24
-        md:pt-24
-        md:pb-32
-        ${className}
-      `}
+      className={`page-shell ${className}`}
     >
       {content}
     </div>
