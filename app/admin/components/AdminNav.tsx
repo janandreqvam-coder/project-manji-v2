@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 type AdminLink = {
   href: string;
   label: string;
-  description: string;
+  icon: string;
 };
 
 type Props = {
@@ -27,18 +27,18 @@ export default function AdminNav({ links }: Props) {
           <Link
             key={link.href}
             href={link.href}
-            className={`block rounded-xl border px-4 py-3 transition ${
+            className={`flex items-center gap-3 rounded-lg border px-4 py-3 text-sm font-bold transition ${
               active
-                ? "border-red-500/60 bg-red-600/15 text-white"
-                : "border-transparent text-gray-400 hover:border-red-600/20 hover:bg-red-600/10 hover:text-white"
+                ? "border-red-500/70 bg-red-600/20 text-white"
+                : "border-transparent text-gray-300 hover:border-red-600/30 hover:bg-red-600/10 hover:text-white"
             }`}
           >
-            <span className="block text-sm font-bold">
-              {link.label}
+            <span className="text-lg text-red-400">
+              {link.icon}
             </span>
 
-            <span className="mt-1 block text-xs text-gray-500">
-              {link.description}
+            <span>
+              {link.label}
             </span>
           </Link>
         );

@@ -18,6 +18,7 @@ export default function LogoutButton() {
     <Button
       onClick={logout}
       variant="secondary"
+      className="w-full"
     >
       Sign Out
     </Button>
