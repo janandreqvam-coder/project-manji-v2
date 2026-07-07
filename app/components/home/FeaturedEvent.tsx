@@ -1,19 +1,24 @@
-import { supabase } from "@/app/lib/supabase";
-
 import EventCountdown from "./EventCountdown";
 
 import Button from "../ui/Button";
 import Card from "../ui/Card";
 import SiteContainer from "../ui/SiteContainer";
 
-export default async function FeaturedEvent() {
-  const { data: event } = await supabase
-    .from("events")
-    .select("*")
-    .order("date", { ascending: true })
-    .limit(1)
-    .single();
+type Event = {
+  name: string;
+  description: string;
+  date: string;
+  time: string;
+  location: string;
+  status: string;
+  discord: string;
+};
 
+type Props = {
+  event: Event | null;
+};
+
+export default function FeaturedEvent({ event }: Props) {
   if (!event) {
     return (
       <section className="relative overflow-hidden py-24">

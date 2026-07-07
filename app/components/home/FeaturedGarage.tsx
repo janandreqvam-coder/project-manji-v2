@@ -1,16 +1,15 @@
-import { supabase } from "@/app/lib/supabase";
-
 import CarCard from "./CarCard";
 import Button from "../ui/Button";
 import SiteContainer from "../ui/SiteContainer";
+import SectionGrid from "../ui/SectionGrid";
 
-export default async function FeaturedGarage() {
-  const { data: cars } = await supabase
-    .from("cars")
-    .select("*")
-    .order("created_at", { ascending: false })
-    .limit(3);
+type Car = React.ComponentProps<typeof CarCard>["car"];
 
+type Props = {
+  cars: Car[];
+};
+
+export default function FeaturedGarage({ cars }: Props) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-black to-zinc-950 py-32 text-white">
 
@@ -32,7 +31,7 @@ export default async function FeaturedGarage() {
           Every car has its own story, specifications and driver.
         </p>
 
-        <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+        <SectionGrid>
 
           {cars && cars.length > 0 ? (
 
@@ -59,7 +58,7 @@ export default async function FeaturedGarage() {
 
           )}
 
-        </div>
+        </SectionGrid>
 
         <div className="mt-20 flex justify-center">
 

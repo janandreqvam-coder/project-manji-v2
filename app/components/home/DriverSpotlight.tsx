@@ -1,18 +1,26 @@
 import Image from "next/image";
 
-import { supabase } from "@/app/lib/supabase";
-
 import Button from "../ui/Button";
 import Card from "../ui/Card";
 import SiteContainer from "../ui/SiteContainer";
 
-export default async function DriverSpotlight() {
-  const { data: driver } = await supabase
-    .from("drivers")
-    .select("*")
-    .limit(1)
-    .single();
+type Driver = {
+  slug: string;
+  name: string;
+  role: string;
+  discipline: string;
+  country: string;
+  favoriteCar: string;
+  experience: string;
+  image: string;
+  bio: string;
+};
 
+type Props = {
+  driver: Driver | null;
+};
+
+export default function DriverSpotlight({ driver }: Props) {
   if (!driver) return null;
 
   return (

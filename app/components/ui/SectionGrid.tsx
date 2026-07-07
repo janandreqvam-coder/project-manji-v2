@@ -13,7 +13,7 @@ export default function SectionGrid({
       ? "md:grid-cols-2"
       : cols === 4
       ? "md:grid-cols-2 xl:grid-cols-4"
-      : "md:grid-cols-2 xl:grid-cols-2";
+      : "md:grid-cols-2 xl:grid-cols-3";
 
   return (
     <div className={`grid ${theme.layout.cardGap} ${grid}`}>

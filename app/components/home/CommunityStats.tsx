@@ -1,21 +1,19 @@
-import { supabase } from "@/app/lib/supabase";
-
 import SiteContainer from "../ui/SiteContainer";
 import StatCard from "../ui/StatCard";
 
-export default async function CommunityStats() {
-  const [
-    { count: carCount },
-    { count: driverCount },
-    { count: eventCount },
-    { count: galleryCount },
-  ] = await Promise.all([
-    supabase.from("cars").select("*", { count: "exact", head: true }),
-    supabase.from("drivers").select("*", { count: "exact", head: true }),
-    supabase.from("events").select("*", { count: "exact", head: true }),
-    supabase.from("gallery").select("*", { count: "exact", head: true }),
-  ]);
+type Props = {
+  carCount: number;
+  driverCount: number;
+  eventCount: number;
+  galleryCount: number;
+};
 
+export default function CommunityStats({
+  carCount,
+  driverCount,
+  eventCount,
+  galleryCount,
+}: Props) {
   const stats = [
     {
       icon: "🚗",
