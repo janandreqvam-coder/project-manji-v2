@@ -1,53 +1,117 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Navbar() {
-  return (
-    <nav className="fixed top-0 z-50 w-full border-b border-red-900/30 bg-black/70 backdrop-blur-md">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+import SearchBar from "./SearchBar";
+import { theme } from "../ui/theme";
 
-        <Link href="/">
+export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/garage", label: "Garage" },
+    { href: "/drivers", label: "Drivers" },
+    { href: "/events", label: "Events" },
+    { href: "/gallery", label: "Gallery" },
+    { href: "/ai", label: "🤖 AI" },
+  ];
+
+  return (
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-red-600/20 bg-black/75 backdrop-blur-xl">
+
+      <div
+        className={`mx-auto flex items-center justify-between ${theme.navbar.width} ${theme.navbar.height} ${theme.navbar.padding}`}
+      >
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center">
           <Image
             src="/logos/logo.png"
             alt="Project Manji"
-            width={48}
-            height={48}
+            width={72}
+            height={72}
             priority
+            className="h-auto w-20 transition duration-300 hover:scale-105"
           />
         </Link>
 
-        <div className="hidden items-center gap-8 font-semibold md:flex">
+        {/* Desktop Navigation */}
+        <div className="hidden items-center gap-8 lg:flex">
 
-          <Link href="/" className="transition hover:text-red-500">
-            Home
-          </Link>
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="font-semibold transition duration-300 hover:text-red-500"
+            >
+              {link.label}
+            </Link>
+          ))}
 
-          <Link href="/garage" className="transition hover:text-red-500">
-            Garage
-          </Link>
+          <SearchBar />
 
-          <Link href="/drivers" className="transition hover:text-red-500">
-            Drivers
-          </Link>
-
-          <Link href="/events" className="transition hover:text-red-500">
-            Events
-          </Link>
-
-          <Link href="/gallery" className="transition hover:text-red-500">
-            Gallery
-          </Link>
-
-          <Link
-            href="/join"
-            className="rounded-xl bg-red-600 px-5 py-2 transition hover:bg-red-500"
+          <a
+            href="https://discord.gg/VMFycskcWp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-xl bg-red-600 px-6 py-3 font-bold transition duration-300 hover:scale-105 hover:bg-red-500"
           >
-            Join
-          </Link>
+            Join Discord
+          </a>
+
+        </div>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setOpen(!open)}
+          className="text-3xl transition hover:text-red-500 lg:hidden"
+          aria-label="Toggle Menu"
+        >
+          {open ? "✕" : "☰"}
+        </button>
+
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`overflow-hidden bg-black transition-all duration-300 lg:hidden ${
+          open
+            ? "max-h-screen border-t border-red-600/20"
+            : "max-h-0"
+        }`}
+      >
+
+        <div className="space-y-3 p-6">
+
+          <SearchBar />
+
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="block rounded-xl py-3 text-lg transition hover:bg-red-600/20 hover:text-red-500"
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <a
+            href="https://discord.gg/VMFycskcWp"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block rounded-xl bg-red-600 py-3 text-center font-bold transition hover:bg-red-500"
+          >
+            Join Discord
+          </a>
 
         </div>
 
       </div>
+
     </nav>
   );
 }

@@ -4,13 +4,26 @@ export const cars = [
     slug: "nissan-silvia-s15",
 
     name: "Nissan Silvia S15",
+    manufacturer: "Nissan",
+    country: "Japan",
+    year: "1999",
+
     driver: "Rullo",
-    power: "420 HP",
+
     class: "Drift",
+
+    power: "420 HP",
+    weight: "1180 kg",
+    drive: "RWD",
+    transmission: "6-Speed Manual",
+    topSpeed: "260 km/h",
+
+    engineCode: "SR20DET",
+
     image: "/logos/Nissan Silvia S15.png",
 
     description:
-      "A balanced drift build focused on precision, reliability and style.",
+      "A balanced drift build focused on precision, reliability and style. Built for aggressive angle, quick transitions and maximum control on technical drift circuits.",
 
     engine: [
       "SR20DET",
@@ -49,13 +62,26 @@ export const cars = [
     slug: "nissan-skyline-r32",
 
     name: "Nissan Skyline R32",
+    manufacturer: "Nissan",
+    country: "Japan",
+    year: "1992",
+
     driver: "Ghost",
-    power: "600 HP",
+
     class: "Shutoko",
+
+    power: "600 HP",
+    weight: "1430 kg",
+    drive: "AWD",
+    transmission: "5-Speed Manual",
+    topSpeed: "320 km/h",
+
+    engineCode: "RB26DETT",
+
     image: "/logos/Nissan Skyline R32.png",
 
     description:
-      "Built for high-speed highway runs with strong acceleration and stability.",
+      "Built for high-speed highway runs with explosive acceleration and exceptional stability at extreme speeds.",
 
     engine: [
       "RB26DETT",
@@ -94,13 +120,26 @@ export const cars = [
     slug: "toyota-supra-mk4",
 
     name: "Toyota Supra MK4",
+    manufacturer: "Toyota",
+    country: "Japan",
+    year: "1998",
+
     driver: "Nova",
-    power: "720 HP",
+
     class: "Racing",
+
+    power: "720 HP",
+    weight: "1490 kg",
+    drive: "RWD",
+    transmission: "6-Speed Getrag",
+    topSpeed: "340 km/h",
+
+    engineCode: "2JZ-GTE",
+
     image: "/logos/Toyota Supra MK4.png",
 
     description:
-      "A high horsepower grip build made for circuit racing.",
+      "A high horsepower circuit build engineered for grip, precision and consistent lap times under extreme conditions.",
 
     engine: [
       "2JZ-GTE",

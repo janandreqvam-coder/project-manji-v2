@@ -1,32 +1,75 @@
+import { supabase } from "@/app/lib/supabase";
+
 import CarCard from "./CarCard";
-import { cars } from "../../data/cars";
+import Button from "../ui/Button";
+import SiteContainer from "../ui/SiteContainer";
 
-export default function FeaturedGarage() {
+export default async function FeaturedGarage() {
+  const { data: cars } = await supabase
+    .from("cars")
+    .select("*")
+    .order("created_at", { ascending: false })
+    .limit(3);
+
   return (
-    <section className="bg-zinc-950 py-32 text-white">
+    <section className="relative overflow-hidden bg-gradient-to-b from-zinc-950 via-black to-zinc-950 py-32 text-white">
 
-      <div className="mx-auto max-w-7xl px-6">
+      {/* Ambient Glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08),transparent_70%)]" />
 
-        <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.4em] text-red-500">
-          Community
+      <SiteContainer>
+
+        <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.5em] text-red-500">
+          FEATURED GARAGE
         </p>
 
-        <h2 className="mb-16 text-center text-5xl font-black uppercase md:text-6xl">
-          Featured Garage
+        <h2 className="text-center text-5xl font-black uppercase md:text-7xl">
+          Community Builds
         </h2>
+
+        <p className="mx-auto mt-8 mb-20 max-w-3xl text-center text-lg leading-8 text-gray-400">
+          Discover some of the newest builds from the Project Manji community.
+          Every car has its own story, specifications and driver.
+        </p>
 
         <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
 
-          {cars.map((car) => (
-            <CarCard
-              key={car.id}
-              car={car}
-            />
-          ))}
+          {cars && cars.length > 0 ? (
+
+            cars.map((car) => (
+              <CarCard
+                key={car.id}
+                car={car}
+              />
+            ))
+
+          ) : (
+
+            <div className="col-span-full rounded-3xl border border-red-600/20 bg-zinc-900 p-12 text-center">
+
+              <h3 className="text-3xl font-black text-red-500">
+                No Cars Yet
+              </h3>
+
+              <p className="mt-4 text-gray-400">
+                The community garage is waiting for its first build.
+              </p>
+
+            </div>
+
+          )}
 
         </div>
 
-      </div>
+        <div className="mt-20 flex justify-center">
+
+          <Button href="/garage">
+            🚗 View All Builds
+          </Button>
+
+        </div>
+
+      </SiteContainer>
 
     </section>
   );

@@ -1,23 +1,78 @@
-import FeaturedGarage from "../components/home/FeaturedGarage";
+import CarCard from "../components/home/CarCard";
+import { supabase } from "@/app/lib/supabase";
 
-export default function GaragePage() {
+import Layout from "@/app/components/ui/Layout";
+import PageHero from "@/app/components/ui/PageHero";
+import SectionGrid from "@/app/components/ui/SectionGrid";
+
+export default async function GaragePage() {
+  const { data: cars, error } = await supabase
+    .from("cars")
+    .select("*")
+    .order("name");
+
+  if (error) {
+    console.error(error);
+
+    return (
+      <Layout>
+
+        <PageHero
+          eyebrow="Error"
+          title="Community Garage"
+          description="Something went wrong while loading the garage."
+        />
+
+        <div className="text-center">
+
+          <h2 className="text-4xl font-black text-red-500">
+            Failed to load cars
+          </h2>
+
+          <p className="mt-6 text-lg text-gray-400">
+            Please try again later.
+          </p>
+
+        </div>
+
+      </Layout>
+    );
+  }
+
   return (
-    <main className="min-h-screen bg-black pt-24 text-white">
+    <Layout>
 
-      <section className="mx-auto max-w-5xl px-6 py-20">
+      <PageHero
+        eyebrow="Project Manji"
+        title="Community Garage"
+        description="Browse the community's featured drift, racing, touge and Shutoko builds. Every car has its own story, specifications and driver."
+      />
 
-        <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.4em] text-red-500">
-          Community
-        </p>
+      {cars && cars.length > 0 ? (
+        <SectionGrid>
 
-        <h1 className="mb-16 text-center text-6xl font-black uppercase">
-          Garage
-        </h1>
+          {cars.map((car) => (
+            <CarCard
+              key={car.id}
+              car={car}
+            />
+          ))}
 
-        <FeaturedGarage />
+        </SectionGrid>
+      ) : (
+        <div className="rounded-3xl border border-yellow-500/30 bg-yellow-500/10 p-10 text-center">
 
-      </section>
+          <h2 className="text-3xl font-bold text-yellow-400">
+            No cars found
+          </h2>
 
-    </main>
+          <p className="mt-4 text-lg text-gray-400">
+            There are currently no cars in the database.
+          </p>
+
+        </div>
+      )}
+
+    </Layout>
   );
 }
