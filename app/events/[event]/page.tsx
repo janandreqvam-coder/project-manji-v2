@@ -17,7 +17,7 @@ export default function EventPage() {
 
           <p className="mt-8 text-lg leading-8 text-gray-400">
             This event page is currently under construction.
-            Soon you'll be able to view:
+            Soon you&apos;ll be able to view:
           </p>
 
           <ul className="mt-8 space-y-4 text-lg text-gray-300">

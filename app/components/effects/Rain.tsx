@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Drop = {
   left: number;
@@ -11,19 +11,15 @@ type Drop = {
 };
 
 export default function Rain() {
-  const [drops, setDrops] = useState<Drop[]>([]);
-
-  useEffect(() => {
-    const generated = Array.from({ length: 120 }, () => ({
+  const [drops] = useState<Drop[]>(() =>
+    Array.from({ length: 120 }, () => ({
       left: Math.random() * 100,
       top: Math.random() * -100,
       height: 12 + Math.random() * 18,
       duration: 0.6 + Math.random() * 0.6,
       delay: Math.random() * 2,
-    }));
-
-    setDrops(generated);
-  }, []);
+    }))
+  );
 
   return (
     <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">

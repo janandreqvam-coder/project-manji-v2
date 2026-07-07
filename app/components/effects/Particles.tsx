@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type Particle = {
   left: number;
@@ -10,18 +10,14 @@ type Particle = {
 };
 
 export default function Particles() {
-  const [particles, setParticles] = useState<Particle[]>([]);
-
-  useEffect(() => {
-    const generated = Array.from({ length: 40 }, () => ({
+  const [particles] = useState<Particle[]>(() =>
+    Array.from({ length: 40 }, () => ({
       left: Math.random() * 100,
       top: Math.random() * 100,
       delay: Math.random() * 5,
       duration: 2 + Math.random() * 4,
-    }));
-
-    setParticles(generated);
-  }, []);
+    }))
+  );
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">

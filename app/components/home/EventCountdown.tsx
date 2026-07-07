@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export default function EventCountdown({
   date,
@@ -9,9 +9,9 @@ export default function EventCountdown({
   date: string;
   time: string;
 }) {
-  const target = new Date(`${date}T${time}:00`);
+  const target = useMemo(() => new Date(`${date}T${time}:00`), [date, time]);
 
-  const getTimeLeft = () => {
+  const getTimeLeft = useCallback(() => {
     const diff = target.getTime() - Date.now();
 
     if (diff <= 0) {
@@ -29,7 +29,7 @@ export default function EventCountdown({
       minutes: Math.floor((diff / (1000 * 60)) % 60),
       seconds: Math.floor((diff / 1000) % 60),
     };
-  };
+  }, [target]);
 
   // Start with zeros to match the server render
   const [timeLeft, setTimeLeft] = useState({
@@ -40,15 +40,12 @@ export default function EventCountdown({
   });
 
   useEffect(() => {
-    // Update immediately after the component mounts
-    setTimeLeft(getTimeLeft());
-
     const timer = setInterval(() => {
       setTimeLeft(getTimeLeft());
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [getTimeLeft]);
 
   const items = [
     { label: "Days", value: timeLeft.days },

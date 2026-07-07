@@ -3,13 +3,13 @@ type Column = {
   label: string;
 };
 
-type Props<T> = {
+type Props<T extends { id: number } & Record<string, unknown>> = {
   columns: Column[];
   data: T[];
   renderActions?: (row: T) => React.ReactNode;
 };
 
-export default function DataTable<T extends { id: number }>({
+export default function DataTable<T extends { id: number } & Record<string, unknown>>({
   columns,
   data,
   renderActions,
@@ -56,7 +56,7 @@ export default function DataTable<T extends { id: number }>({
                   key={column.key}
                   className="p-5"
                 >
-                  {String((row as any)[column.key] ?? "")}
+                  {String(row[column.key] ?? "")}
                 </td>
               ))}
 

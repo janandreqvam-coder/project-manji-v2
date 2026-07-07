@@ -46,7 +46,7 @@ export default function About() {
 
           <p className="mx-auto mt-10 max-w-4xl text-xl leading-9 text-gray-300">
             Project Manji is more than an Assetto Corsa community.
-            It's a place where drivers come together to drift, race,
+            It&apos;s a place where drivers come together to drift, race,
             cruise, battle through mountain passes and experience
             Japanese car culture together.
           </p>

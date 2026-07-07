@@ -1,10 +1,8 @@
-import Link from "next/link";
 import AppLayout from "@/app/components/ui/AppLayout";
 import { supabase } from "@/app/lib/supabase";
 import QuickAction from "@/app/components/ui/QuickAction";
 import PageHero from "@/app/components/ui/PageHero";
 import SectionGrid from "@/app/components/ui/SectionGrid";
-import Card from "@/app/components/ui/Card";
 import StatCard from "@/app/components/ui/StatCard";
 
 export default async function AdminPage() {

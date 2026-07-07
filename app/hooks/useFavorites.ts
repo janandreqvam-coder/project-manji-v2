@@ -1,17 +1,21 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function useFavorites() {
-  const [favorites, setFavorites] = useState<number[]>([]);
+  const [favorites, setFavorites] = useState<number[]>(() => {
+    if (typeof window === "undefined") {
+      return [];
+    }
 
-  useEffect(() => {
     const saved = localStorage.getItem("favorites");
 
     if (saved) {
-      setFavorites(JSON.parse(saved));
+      return JSON.parse(saved);
     }
-  }, []);
+
+    return [];
+  });
 
   function toggleFavorite(id: number) {
     setFavorites((prev) => {
