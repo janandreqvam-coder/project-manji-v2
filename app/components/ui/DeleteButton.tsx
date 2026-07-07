@@ -1,7 +1,7 @@
 "use client";
 
 import { useTransition } from "react";
-import { deleteCar } from "@/app/admin/actions";
+import { deleteCar } from "@/app/admin/cars/actions";
 
 type Props = {
   id: number;
