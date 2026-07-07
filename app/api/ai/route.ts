@@ -1,13 +1,21 @@
-import OpenAI from "openai";
 import { NextResponse } from "next/server";
-
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
 
 export async function POST(req: Request) {
   try {
+    const { default: OpenAI } = await import("openai");
     const { message } = await req.json();
+    const apiKey = process.env.OPENAI_API_KEY;
+
+    if (!apiKey) {
+      return NextResponse.json(
+        {
+          reply: "Manji AI is not configured yet.",
+        },
+        { status: 500 }
+      );
+    }
+
+    const openai = new OpenAI({ apiKey });
 
     const response = await openai.responses.create({
       model: "gpt-5.4-mini",
