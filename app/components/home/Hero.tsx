@@ -79,17 +79,6 @@ export default function Hero() {
 
           </div>
 
-          {/* Scroll Indicator */}
-          <div className="mt-20 flex flex-col items-center animate-bounce">
-
-            <span className="mb-3 text-xs uppercase tracking-[0.4em] text-gray-500">
-              Scroll Down
-            </span>
-
-            <div className="h-10 w-[2px] bg-red-500" />
-
-          </div>
-
         </div>
       </FadeIn>
     </section>
