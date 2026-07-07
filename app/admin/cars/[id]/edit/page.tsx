@@ -1,6 +1,5 @@
 import { supabase } from "@/app/lib/supabase";
 
-import Layout from "@/app/components/ui/Layout";
 import PageHero from "@/app/components/ui/PageHero";
 import FormInput from "@/app/components/ui/FormInput";
 import FormTextarea from "@/app/components/ui/FormTextarea";
@@ -23,7 +22,7 @@ export default async function EditCarPage({
 
   if (!car) {
     return (
-      <Layout>
+      <>
 
         <PageHero
           eyebrow="Admin"
@@ -31,12 +30,12 @@ export default async function EditCarPage({
           description="The requested car could not be found."
         />
 
-      </Layout>
+      </>
     );
   }
 
   return (
-    <Layout>
+    <>
 
       <PageHero
         eyebrow="Admin"
@@ -103,6 +102,6 @@ export default async function EditCarPage({
 
       </form>
 
-    </Layout>
+    </>
   );
 }

@@ -1,25 +1,16 @@
 import Link from "next/link";
 import { events } from "../data/events";
+import AppLayout from "../components/ui/AppLayout";
+import PageHero from "../components/ui/PageHero";
 
 export default function EventsPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <section className="mx-auto max-w-7xl px-6 py-16">
-
-        <div className="mb-16 text-center">
-          <p className="mb-4 text-sm font-bold uppercase tracking-[0.4em] text-red-500">
-            Community
-          </p>
-
-          <h1 className="text-5xl font-black uppercase md:text-6xl">
-            Upcoming Events
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-gray-400">
-            Join Project Manji at upcoming races, drift events,
-            championships and community meets.
-          </p>
-        </div>
+    <AppLayout>
+      <PageHero
+        eyebrow="Community"
+        title="Upcoming Events"
+        description="Join Project Manji at upcoming races, drift events, championships and community meets."
+      />
 
         <div className="space-y-8">
           {events.map((event) => (
@@ -59,7 +50,6 @@ export default function EventsPage() {
           ))}
         </div>
 
-      </section>
-    </main>
+    </AppLayout>
   );
 }

@@ -1,9 +1,9 @@
 import Link from "next/link";
+import AppLayout from "@/app/components/ui/AppLayout";
 
 export default function EventPage() {
   return (
-    <main className="min-h-screen bg-black text-white">
-      <section className="mx-auto max-w-5xl px-6 py-16">
+    <AppLayout>
 
         <div className="rounded-4xl border border-red-600/20 bg-zinc-900 p-10">
 
@@ -39,7 +39,6 @@ export default function EventPage() {
 
         </div>
 
-      </section>
-    </main>
+    </AppLayout>
   );
 }

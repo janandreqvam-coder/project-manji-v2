@@ -1,4 +1,3 @@
-import Layout from "@/app/components/ui/Layout";
 import PageHero from "@/app/components/ui/PageHero";
 import FormInput from "@/app/components/ui/FormInput";
 import FormTextarea from "@/app/components/ui/FormTextarea";
@@ -8,7 +7,7 @@ import { createCar } from "../actions";
 
 export default function NewCarPage() {
   return (
-    <Layout>
+    <>
 
       <PageHero
         eyebrow="Admin"
@@ -74,6 +73,6 @@ export default function NewCarPage() {
 
       </form>
 
-    </Layout>
+    </>
   );
 }

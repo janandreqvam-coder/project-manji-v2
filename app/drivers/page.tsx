@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import { supabase } from "@/app/lib/supabase";
 
-import PageContainer from "@/app/components/ui/PageContainer";
+import AppLayout from "@/app/components/ui/AppLayout";
 import PageHero from "@/app/components/ui/PageHero";
 import SectionGrid from "@/app/components/ui/SectionGrid";
 
@@ -26,7 +26,7 @@ export default async function DriversPage() {
   }
 
   return (
-    <PageContainer>
+    <AppLayout>
 
       <PageHero
         eyebrow="Project Manji"
@@ -90,6 +90,6 @@ export default async function DriversPage() {
 
       </SectionGrid>
 
-    </PageContainer>
+    </AppLayout>
   );
 }

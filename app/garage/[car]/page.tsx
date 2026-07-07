@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { supabase } from "@/app/lib/supabase";
+import AppLayout from "@/app/components/ui/AppLayout";
 
 type Props = {
   params: Promise<{
@@ -22,9 +23,7 @@ export default async function CarPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
-
-      <section className="mx-auto max-w-7xl px-6 pt-36 pb-16">
+    <AppLayout>
 
         <div className="grid gap-12 lg:grid-cols-2">
 
@@ -68,9 +67,7 @@ export default async function CarPage({ params }: Props) {
 
         </div>
 
-      </section>
-
-    </main>
+    </AppLayout>
   );
 }
 

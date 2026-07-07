@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import { supabase } from "@/app/lib/supabase";
 import DeleteButton from "@/app/components/ui/DeleteButton";
-import Layout from "@/app/components/ui/Layout";
 import PageHero from "@/app/components/ui/PageHero";
 import EmptyState from "@/app/components/ui/EmptyState";
 import DataTable from "@/app/components/ui/DataTable";
@@ -16,7 +15,7 @@ export default async function AdminCarsPage() {
 
   if (error) {
     return (
-      <Layout>
+      <>
         <PageHero
           eyebrow="Admin"
           title="Manage Cars"
@@ -27,13 +26,13 @@ export default async function AdminCarsPage() {
           title="Something went wrong"
           description="The cars could not be loaded."
         />
-      </Layout>
+      </>
     );
   }
 
   if (!cars || cars.length === 0) {
     return (
-      <Layout>
+      <>
         <PageHero
           eyebrow="Admin"
           title="Manage Cars"
@@ -46,12 +45,12 @@ export default async function AdminCarsPage() {
           buttonText="+ Add Car"
           buttonHref="/admin/cars/new"
         />
-      </Layout>
+      </>
     );
   }
 
   return (
-    <Layout>
+    <>
 
       <PageHero
         eyebrow="Admin"
@@ -90,6 +89,6 @@ export default async function AdminCarsPage() {
         )}
       />
 
-    </Layout>
+    </>
   );
 }

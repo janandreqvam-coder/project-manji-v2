@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import AppLayout from "../components/ui/AppLayout";
+import PageHero from "../components/ui/PageHero";
 
 type ChatMessage = {
   role: "user" | "assistant";
@@ -80,25 +82,12 @@ export default function AIPage() {
   ];
 
   return (
-    <main className="min-h-screen text-white">
-
-      <section className="relative overflow-hidden py-24">
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(220,38,38,0.08),transparent_70%)]" />
-
-        <div className="relative mx-auto max-w-6xl px-6">
-
-          <p className="text-center text-sm font-bold uppercase tracking-[0.5em] text-red-500">
-            PROJECT MANJI
-          </p>
-
-          <h1 className="mt-4 text-center text-6xl font-black uppercase md:text-7xl">
-            MANJI AI
-          </h1>
-
-          <p className="mx-auto mt-8 max-w-3xl text-center text-xl leading-9 text-gray-400">
-            Your intelligent garage assistant for everything Project Manji.
-          </p>
+    <AppLayout>
+      <PageHero
+        eyebrow="Project Manji"
+        title="Manji AI"
+        description="Your intelligent garage assistant for everything Project Manji."
+      />
 
           <div className="mt-20 rounded-3xl border border-red-600/20 bg-zinc-900/80 backdrop-blur-sm">
 
@@ -223,10 +212,6 @@ export default function AIPage() {
 
           </div>
 
-        </div>
-
-      </section>
-
-    </main>
+    </AppLayout>
   );
 }

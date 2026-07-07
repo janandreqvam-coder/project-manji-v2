@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-import Layout from "@/app/components/ui/Layout";
+import AppLayout from "@/app/components/ui/AppLayout";
 import PageHero from "@/app/components/ui/PageHero";
 import Button from "@/app/components/ui/Button";
 
@@ -40,7 +40,7 @@ export default function LoginPage() {
   }
 
   return (
-    <Layout>
+    <AppLayout>
 
       <PageHero
         eyebrow="Project Manji"
@@ -97,6 +97,6 @@ export default function LoginPage() {
 
       </form>
 
-    </Layout>
+    </AppLayout>
   );
 }

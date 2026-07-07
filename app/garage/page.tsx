@@ -1,7 +1,7 @@
 import CarCard from "../components/home/CarCard";
 import { supabase } from "@/app/lib/supabase";
 
-import Layout from "@/app/components/ui/Layout";
+import AppLayout from "@/app/components/ui/AppLayout";
 import PageHero from "@/app/components/ui/PageHero";
 import SectionGrid from "@/app/components/ui/SectionGrid";
 
@@ -15,7 +15,7 @@ export default async function GaragePage() {
     console.error(error);
 
     return (
-      <Layout>
+      <AppLayout>
 
         <PageHero
           eyebrow="Error"
@@ -35,12 +35,12 @@ export default async function GaragePage() {
 
         </div>
 
-      </Layout>
+      </AppLayout>
     );
   }
 
   return (
-    <Layout>
+    <AppLayout>
 
       <PageHero
         eyebrow="Project Manji"
@@ -73,6 +73,6 @@ export default async function GaragePage() {
         </div>
       )}
 
-    </Layout>
+    </AppLayout>
   );
 }

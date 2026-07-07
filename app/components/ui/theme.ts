@@ -1,9 +1,9 @@
 export const theme = {
   layout: {
-    width: "max-w-[1700px]",
+    width: "max-w-7xl",
     top: "pt-12",
     bottom: "pb-32",
-    sides: "px-8 lg:px-12 xl:px-16",
+    sides: "px-6 sm:px-8 lg:px-10",
 
     heroGap: "mb-24",
     sectionGap: "mt-20",
@@ -11,9 +11,9 @@ export const theme = {
   },
 
   navbar: {
-    width: "max-w-[1700px]",
+    width: "max-w-7xl",
     height: "h-20",
-    padding: "px-8 lg:px-12 xl:px-16",
+    padding: "px-6 sm:px-8 lg:px-10",
   },
 
   sidebar: {

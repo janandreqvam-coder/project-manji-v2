@@ -47,7 +47,7 @@ export default function RootLayout({
         <Navbar />
 
         {/* Site Content */}
-        <main className="relative z-10 min-h-screen pt-24">
+        <main className="relative z-10 min-h-screen pt-20">
           {children}
         </main>
 

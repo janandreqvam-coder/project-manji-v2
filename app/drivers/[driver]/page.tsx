@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { drivers } from "../../data/drivers";
+import AppLayout from "@/app/components/ui/AppLayout";
 
 export default async function DriverPage({
   params,
@@ -20,14 +21,7 @@ export default async function DriverPage({
   }
 
   return (
-    <main className="min-h-screen text-white">
-
-      <section className="relative overflow-hidden py-20">
-
-        {/* Ambient Glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(220,38,38,0.08),transparent_70%)]" />
-
-        <div className="relative mx-auto max-w-7xl px-6">
+    <AppLayout>
 
           <Link
             href="/drivers"
@@ -164,10 +158,6 @@ export default async function DriverPage({
 
           </section>
 
-        </div>
-
-      </section>
-
-    </main>
+    </AppLayout>
   );
 }

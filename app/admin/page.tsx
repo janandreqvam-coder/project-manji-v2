@@ -1,4 +1,3 @@
-import AppLayout from "@/app/components/ui/AppLayout";
 import { supabase } from "@/app/lib/supabase";
 import QuickAction from "@/app/components/ui/QuickAction";
 import PageHero from "@/app/components/ui/PageHero";
@@ -46,7 +45,7 @@ export default async function AdminPage() {
   ];
 
   return (
-    <AppLayout>
+    <>
 
       <PageHero
         eyebrow="Project Manji"
@@ -102,6 +101,6 @@ export default async function AdminPage() {
 
       </SectionGrid>
 
-    </AppLayout>
+    </>
   );
 }

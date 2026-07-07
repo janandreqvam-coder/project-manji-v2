@@ -2,10 +2,12 @@ import { theme } from "./theme";
 
 type Props = {
   children: React.ReactNode;
+  className?: string;
 };
 
 export default function SiteContainer({
   children,
+  className = "",
 }: Props) {
   return (
     <div
@@ -14,6 +16,7 @@ export default function SiteContainer({
         w-full
         ${theme.layout.width}
         ${theme.layout.sides}
+        ${className}
       `}
     >
       {children}

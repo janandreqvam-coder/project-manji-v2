@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Image from "next/image";
 import Lightbox from "../gallery/Lightbox";
+import AppLayout from "../components/ui/AppLayout";
+import PageHero from "../components/ui/PageHero";
 
 const galleryImages = [
   "/logos/Nissan Silvia S15.png",
@@ -17,27 +19,12 @@ export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <main className="min-h-screen text-white">
-
-      <section className="relative overflow-hidden py-24">
-
-        {/* Ambient Glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(220,38,38,0.08),transparent_70%)]" />
-
-        <div className="relative mx-auto max-w-7xl px-6">
-
-          <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.5em] text-red-500">
-            PROJECT MANJI
-          </p>
-
-          <h1 className="text-center text-6xl font-black uppercase md:text-7xl">
-            Gallery
-          </h1>
-
-          <p className="mx-auto mb-20 mt-8 max-w-3xl text-center text-lg leading-8 text-gray-400">
-            A collection of our favorite moments from drifting,
-            Shutoko runs, racing events and community cruises.
-          </p>
+    <AppLayout>
+      <PageHero
+        eyebrow="Project Manji"
+        title="Gallery"
+        description="A collection of our favorite moments from drifting, Shutoko runs, racing events and community cruises."
+      />
 
           <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
 
@@ -77,10 +64,6 @@ export default function GalleryPage() {
 
           </div>
 
-        </div>
-
-      </section>
-
       {/* Lightbox */}
 
       {selectedImage && (
@@ -90,6 +73,6 @@ export default function GalleryPage() {
         />
       )}
 
-    </main>
+    </AppLayout>
   );
 }

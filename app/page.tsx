@@ -10,7 +10,7 @@ import Modes from "./components/home/Modes";
 
 export default function Home() {
   return (
-    <AppLayout>
+    <AppLayout contained={false} className="pt-0 pb-0">
 
       <Hero />
 
