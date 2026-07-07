@@ -1,3 +1,5 @@
+import SiteContainer from "../ui/SiteContainer";
+
 const modes = [
   {
     icon: "🏁",
@@ -46,7 +48,7 @@ export default function Modes() {
       {/* Background Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(220,38,38,0.08),transparent_60%)]" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <SiteContainer className="relative">
 
         <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.5em] text-red-500">
           PROJECT MANJI
@@ -97,7 +99,7 @@ export default function Modes() {
 
         </div>
 
-      </div>
+      </SiteContainer>
     </section>
   );
 }

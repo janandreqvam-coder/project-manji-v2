@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { events } from "../../data/events";
+import SiteContainer from "../ui/SiteContainer";
 
 export default function UpcomingEvents() {
   return (
@@ -7,7 +8,7 @@ export default function UpcomingEvents() {
 
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08),transparent_70%)]" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <SiteContainer className="relative">
 
         <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.5em] text-red-500">
           COMMUNITY
@@ -56,7 +57,7 @@ export default function UpcomingEvents() {
 
         </div>
 
-      </div>
+      </SiteContainer>
 
     </section>
   );

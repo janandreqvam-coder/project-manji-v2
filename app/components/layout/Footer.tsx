@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SiteContainer from "../ui/SiteContainer";
 
 export default function Footer() {
   return (
@@ -7,7 +8,7 @@ export default function Footer() {
       {/* Ambient Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(220,38,38,0.08),transparent_70%)]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-20">
+      <SiteContainer className="relative py-20">
 
         <div className="grid gap-14 md:grid-cols-4">
 
@@ -116,7 +117,7 @@ export default function Footer() {
 
         </div>
 
-      </div>
+      </SiteContainer>
 
     </footer>
   );

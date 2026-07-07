@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import SearchBar from "./SearchBar";
+import SiteContainer from "../ui/SiteContainer";
 import { theme } from "../ui/theme";
 
 export default function Navbar() {
@@ -20,10 +21,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-red-600/20 bg-black/75 backdrop-blur-xl">
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-red-600/20 bg-black/85 backdrop-blur-xl">
 
-      <div
-        className={`mx-auto flex items-center justify-between ${theme.navbar.width} ${theme.navbar.height} ${theme.navbar.padding}`}
+      <SiteContainer
+        className={`flex items-center justify-between ${theme.navbar.height}`}
       >
 
         {/* Logo */}
@@ -34,18 +35,18 @@ export default function Navbar() {
             width={72}
             height={72}
             priority
-            className="h-auto w-20 transition duration-300 hover:scale-105"
+            className="h-14 w-14 object-contain transition duration-300 hover:scale-105"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 lg:flex">
+        <div className="hidden items-center gap-5 xl:gap-8 lg:flex">
 
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="font-semibold transition duration-300 hover:text-red-500"
+              className="whitespace-nowrap font-semibold transition duration-300 hover:text-red-500"
             >
               {link.label}
             </Link>
@@ -73,7 +74,7 @@ export default function Navbar() {
           {open ? "✕" : "☰"}
         </button>
 
-      </div>
+      </SiteContainer>
 
       {/* Mobile Menu */}
       <div
@@ -84,7 +85,7 @@ export default function Navbar() {
         }`}
       >
 
-        <div className="space-y-3 p-6">
+        <SiteContainer className="space-y-3 py-6">
 
           <SearchBar />
 
@@ -108,7 +109,7 @@ export default function Navbar() {
             Join Discord
           </a>
 
-        </div>
+        </SiteContainer>
 
       </div>
 

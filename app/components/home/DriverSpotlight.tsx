@@ -4,6 +4,7 @@ import { supabase } from "@/app/lib/supabase";
 
 import Button from "../ui/Button";
 import Card from "../ui/Card";
+import SiteContainer from "../ui/SiteContainer";
 
 export default async function DriverSpotlight() {
   const { data: driver } = await supabase
@@ -20,7 +21,7 @@ export default async function DriverSpotlight() {
       {/* Ambient Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08),transparent_70%)]" />
 
-      <div className="relative mx-auto max-w-7xl px-6">
+      <SiteContainer className="relative">
 
         <p className="mb-4 text-center text-sm font-bold uppercase tracking-[0.5em] text-red-500">
           COMMUNITY
@@ -86,7 +87,7 @@ export default async function DriverSpotlight() {
 
         </div>
 
-      </div>
+      </SiteContainer>
 
     </section>
   );

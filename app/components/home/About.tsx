@@ -1,5 +1,6 @@
 import FadeIn from "../effects/FadeIn";
 import Card from "../ui/Card";
+import SiteContainer from "../ui/SiteContainer";
 
 const values = [
   {
@@ -32,7 +33,7 @@ export default function About() {
         {/* Ambient Red Glow */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(220,38,38,0.08),transparent_70%)]" />
 
-        <div className="relative mx-auto max-w-6xl px-6 text-center">
+        <SiteContainer className="relative text-center">
 
           <p className="mb-4 text-sm font-bold uppercase tracking-[0.5em] text-red-500">
             WHO WE ARE
@@ -78,7 +79,7 @@ export default function About() {
 
           </div>
 
-        </div>
+        </SiteContainer>
       </section>
     </FadeIn>
   );

@@ -1,4 +1,5 @@
 import { drivers } from "@/app/data/drivers";
+import SiteContainer from "@/app/components/ui/SiteContainer";
 
 export default function Leaderboard() {
   const sorted = [...drivers].sort((a, b) => b.achievements.length - a.achievements.length);
@@ -6,7 +7,7 @@ export default function Leaderboard() {
   return (
     <section className="py-24">
 
-      <div className="mx-auto max-w-7xl px-6">
+      <SiteContainer>
 
         <p className="text-center text-sm font-bold uppercase tracking-[0.45em] text-red-500">
           TOP DRIVERS
@@ -71,7 +72,7 @@ export default function Leaderboard() {
 
         </div>
 
-      </div>
+      </SiteContainer>
 
     </section>
   );
